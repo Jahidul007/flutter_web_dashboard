@@ -10,6 +10,9 @@ class SiteLayout extends StatelessWidget {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
     return Scaffold(
       appBar: topNavigationBar(context, scaffoldKey),
+      drawer: Drawer(
+
+      ),
       body: ResponsivenessWidget(
         largeScreen: LargePage(),
         smallScreen: SmallPage(),
