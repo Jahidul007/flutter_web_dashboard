@@ -23,31 +23,19 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 key.currentState.openDrawer();
               },
             ),
-      title: Row(
-        children: [
-          Visibility(
-              child: CustomText(
-            text: "Dash",
-            color: lightGrey,
-            size: 20,
-            fontWeight: FontWeight.bold,
-          )),
-          Expanded(child: Container()),
-          IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: dark.withOpacity(0.7),
-              ),
-              onPressed: () {}),
-          Stack(
-            children: [
-              IconButton(
-                  icon: Icon(
-                    Icons.notifications,
-                    color: dark.withOpacity(0.7),
-                  ),
-                  onPressed: () {}),
-              Positioned(
+      title: Container(
+        child: Row(
+          children: [
+            Visibility(
+                visible: !ResponsivenessWidget.isSmallScreen(context),
+                child: CustomText(text: "Dash", color: lightGrey, size: 20, fontWeight: FontWeight.bold,)),
+            Expanded(child: Container()),
+            IconButton(icon: Icon(Icons.settings, color: dark,), onPressed: (){}),
+
+            Stack(
+              children: [
+                IconButton(icon: Icon(Icons.notifications, color: dark.withOpacity(.7),), onPressed: (){}),
+                Positioned(
                   top: 7,
                   right: 7,
                   child: Container(
@@ -57,44 +45,47 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                     decoration: BoxDecoration(
                         color: active,
                         borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: light, width: 2)),
-                  ))
-            ],
-          ),
-          Container(
-            width: 1,
-            height: 22,
-            color: lightGrey,
-          ),
-          SizedBox(
-            width: 24,
-          ),
-          CustomText(
-            text: "Jahid Hasan",
-            color: lightGrey,
-          ),
-          SizedBox(
-            width: 16,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: light, width: 2)
+                    ),
+                  ),
+                )
+              ],
             ),
-            child: Container(
-              padding: EdgeInsets.all(2),
-              margin: EdgeInsets.all(2),
-              child: CircleAvatar(
-                backgroundColor: lightGrey,
-                child: Icon(
-                  Icons.person_outline,
-                  color: dark,
+            Container(
+              width: 1,
+              height: 22,
+              color: lightGrey,
+            ),
+            SizedBox(
+              width: 24,
+            ),
+            CustomText(
+              text: "Jahid Hasan",
+              color: lightGrey,
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Container(
+                padding: EdgeInsets.all(2),
+                margin: EdgeInsets.all(2),
+                child: CircleAvatar(
+                  backgroundColor: lightGrey,
+                  child: Icon(
+                    Icons.person_outline,
+                    color: dark,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
       iconTheme: IconThemeData(color: dark),
-      backgroundColor: Colors.transparent,
+      backgroundColor:light,
     );

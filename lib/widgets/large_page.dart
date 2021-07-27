@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dasboard/widgets/sideMenu.dart';
 
 class LargePage extends StatelessWidget {
   @override
@@ -6,10 +7,8 @@ class LargePage extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Container(
-            color: Colors.red,
-          ),
-        ),
+            child: SideMenu()),
+
         Expanded(
           flex: 5,
           child: Container(
