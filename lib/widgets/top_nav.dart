@@ -3,31 +3,23 @@ import 'package:flutter_web_dasboard/constants/style.dart';
 import 'package:flutter_web_dasboard/helpers/responsiveness.dart';
 import 'package:flutter_web_dasboard/widgets/custom_text.dart';
 
-AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
+AppBar topNavigationBar(BuildContext context,  GlobalKey<ScaffoldState> key) =>
     AppBar(
-      leading: !ResponsivenessWidget.isSmallScreen(context)
-          ? Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 14),
-                  child: Image.asset(
-                    "assets/icons/logo.png",
-                    width: 28,
-                  ),
-                )
-              ],
-            )
-          : IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                key.currentState.openDrawer();
-              },
-            ),
+      leading: !ResponsiveWidget.isSmallScreen(context) ? Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Image.asset("assets/icons/logo.png", width: 28,),
+          ),
+        ],
+      ) : IconButton(icon: Icon(Icons.menu), onPressed: (){
+        key.currentState.openDrawer();
+      }),
       title: Container(
         child: Row(
           children: [
             Visibility(
-                visible: !ResponsivenessWidget.isSmallScreen(context),
+                visible: !ResponsiveWidget.isSmallScreen(context),
                 child: CustomText(text: "Dash", color: lightGrey, size: 20, fontWeight: FontWeight.bold,)),
             Expanded(child: Container()),
             IconButton(icon: Icon(Icons.settings, color: dark,), onPressed: (){}),
@@ -51,35 +43,30 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 )
               ],
             ),
+
             Container(
               width: 1,
               height: 22,
               color: lightGrey,
             ),
-            SizedBox(
-              width: 24,
-            ),
-            CustomText(
-              text: "Jahid Hasan",
-              color: lightGrey,
-            ),
-            SizedBox(
-              width: 16,
-            ),
+            SizedBox(width: 24,),
+            CustomText(text: "Santos Enoque", color: lightGrey,),
+            SizedBox(width: 16,),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+                  color: active.withOpacity(.5),
+                  borderRadius: BorderRadius.circular(30)
               ),
               child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30)
+                ),
                 padding: EdgeInsets.all(2),
                 margin: EdgeInsets.all(2),
                 child: CircleAvatar(
-                  backgroundColor: lightGrey,
-                  child: Icon(
-                    Icons.person_outline,
-                    color: dark,
-                  ),
+                  backgroundColor: light,
+                  child: Icon(Icons.person_outline, color: dark,),
                 ),
               ),
             )
@@ -87,5 +74,6 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
         ),
       ),
       iconTheme: IconThemeData(color: dark),
-      backgroundColor:light,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
     );

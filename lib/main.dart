@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dasboard/constants/style.dart';
 import 'package:flutter_web_dasboard/controllers/menu_controller.dart';
 import 'package:flutter_web_dasboard/controllers/navigation_controller.dart';
 import 'package:flutter_web_dasboard/layout.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: light,
         textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.black),
         pageTransitionsTheme: PageTransitionsTheme(builders: {

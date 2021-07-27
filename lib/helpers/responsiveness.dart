@@ -5,13 +5,13 @@ const int mediumScreenSize = 768;
 const int smallScreenSize = 360;
 const int customScreenSize = 1100;
 
-class ResponsivenessWidget extends StatelessWidget {
+class ResponsiveWidget extends StatelessWidget {
   final Widget largeScreen;
   final Widget mediumScreen;
   final Widget smallScreen;
   final Widget customScreen;
 
-  ResponsivenessWidget(
+  ResponsiveWidget(
       {this.largeScreen,
       this.mediumScreen,
       this.smallScreen,

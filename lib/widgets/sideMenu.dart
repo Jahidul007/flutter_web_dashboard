@@ -17,7 +17,7 @@ class SideMenu extends StatelessWidget {
       color: light,
       child: ListView(
         children: [
-          if (ResponsivenessWidget.isSmallScreen(context))
+          if (ResponsiveWidget.isSmallScreen(context))
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -56,7 +56,7 @@ class SideMenu extends StatelessWidget {
 
                 } if(!menuController.isActive(itemName)){
                   menuController.changeActiveItem(itemName);
-                  if(ResponsivenessWidget.isSmallScreen(context))
+                  if(ResponsiveWidget.isSmallScreen(context))
                     Get.back();
                   navigationController.navigateTo(itemName);
                 }

@@ -16,7 +16,7 @@ class SiteLayout extends StatelessWidget {
       drawer: Drawer(
         child: SideMenu(),
       ),
-      body: ResponsivenessWidget(
+      body: ResponsiveWidget(
         largeScreen: LargePage(),
         smallScreen: SmallPage(),
       ),
