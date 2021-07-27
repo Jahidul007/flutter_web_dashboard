@@ -50,7 +50,7 @@ AppBar topNavigationBar(BuildContext context,  GlobalKey<ScaffoldState> key) =>
               color: lightGrey,
             ),
             SizedBox(width: 24,),
-            CustomText(text: "Santos Enoque", color: lightGrey,),
+            CustomText(text: "Jahid Hasan", color: lightGrey,),
             SizedBox(width: 16,),
             Container(
               decoration: BoxDecoration(

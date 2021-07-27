@@ -42,9 +42,6 @@ class OverviewCardsLargeScreen extends StatelessWidget {
           onTap: () {},
           topColor: Colors.orange,
         ),
-        SizedBox(
-          width: _width / 64,
-        ),
       ],
     );
   }
