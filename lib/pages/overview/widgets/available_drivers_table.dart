@@ -6,6 +6,11 @@ import 'package:flutter_web_dasboard/widgets/custom_text.dart';
 
 /// Example without datasource
 class AvailableDriversTable extends StatelessWidget {
+  final String title;
+  final String action;
+
+  const AvailableDriversTable({Key key, this.title, this.action}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +36,7 @@ class AvailableDriversTable extends StatelessWidget {
                 width: 10,
               ),
               CustomText(
-                text: "Available Drivers",
+                text: "Available $title",
                 color: lightGrey,
                 fontWeight: FontWeight.bold,
               ),
@@ -87,7 +92,7 @@ class AvailableDriversTable extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 12, vertical: 6),
                         child: CustomText(
-                          text: "Assign Delivery",
+                          text: "$action",
                           size: 12,
                           color: active.withOpacity(.7),
                           fontWeight: FontWeight.bold,
