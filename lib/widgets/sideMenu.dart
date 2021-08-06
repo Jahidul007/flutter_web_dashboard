@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_dasboard/constants/controllers.dart';
 import 'package:flutter_web_dasboard/constants/style.dart';
 import 'package:flutter_web_dasboard/helpers/responsiveness.dart';
+import 'package:flutter_web_dasboard/pages/authentication/authentication.dart';
 import 'package:flutter_web_dasboard/routing/routes.dart';
 import 'package:flutter_web_dasboard/widgets/custom_text.dart';
 import 'package:flutter_web_dasboard/widgets/side_menu_item.dart';
@@ -40,28 +41,36 @@ class SideMenu extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: active,
                     )),
-                    SizedBox(width: _width/48,)
+                    SizedBox(
+                      width: _width / 48,
+                    )
                   ],
                 ),
-
               ],
             ),
-          Divider(color: lightGrey.withOpacity(0.1),),
+          Divider(
+            color: lightGrey.withOpacity(0.1),
+          ),
           Column(
             mainAxisSize: MainAxisSize.min,
-            children: sideMenuItems.map((itemName) => SideMenuItem(
-              itemName: itemName == AuthenticationPageRoute? "Log Out": itemName,
-              onTap: (){
-                if(itemName == AuthenticationPageRoute){
-
-                } if(!menuController.isActive(itemName)){
-                  menuController.changeActiveItem(itemName);
-                  if(ResponsiveWidget.isSmallScreen(context))
-                    Get.back();
-                  navigationController.navigateTo(itemName);
-                }
-              },
-            )).toList(),
+            children: sideMenuItems
+                .map((itemName) => SideMenuItem(
+                      itemName: itemName == AuthenticationPageRoute
+                          ? "Log Out"
+                          : itemName,
+                      onTap: () {
+                        if (itemName == AuthenticationPageRoute) {
+                          Get.offAll(() => AuthenticationPage());
+                        }
+                        if (!menuController.isActive(itemName)) {
+                          menuController.changeActiveItem(itemName);
+                          if (ResponsiveWidget.isSmallScreen(context))
+                            Get.back();
+                          navigationController.navigateTo(itemName);
+                        }
+                      },
+                    ))
+                .toList(),
           )
         ],
       ),
