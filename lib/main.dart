@@ -3,7 +3,9 @@ import 'package:flutter_web_dasboard/constants/style.dart';
 import 'package:flutter_web_dasboard/controllers/menu_controller.dart';
 import 'package:flutter_web_dasboard/controllers/navigation_controller.dart';
 import 'package:flutter_web_dasboard/layout.dart';
+import 'package:flutter_web_dasboard/pages/404/error_page.dart';
 import 'package:flutter_web_dasboard/pages/authentication/authentication.dart';
+import 'package:flutter_web_dasboard/routing/routes.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +20,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AuthenticationPageRoute,
+      unknownRoute: GetPage(
+          name: "not-found",
+          page: () => PageNotFound(),
+          transition: Transition.fadeIn),
+      getPages: [
+        GetPage(name: RootRoute, page:  () =>SiteLayout()),
+        GetPage(name: AuthenticationPageRoute, page:  () => AuthenticationPage()),
+      ],
       title: 'Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -30,7 +41,6 @@ class MyApp extends StatelessWidget {
         }),
         primaryColor: Colors.blue,
       ),
-      home: AuthenticationPage(),
     );
   }
 }
