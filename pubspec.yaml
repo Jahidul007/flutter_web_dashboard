@@ -27,6 +27,8 @@ dependencies:
   charts_flutter: ^0.10.0
   get: ^4.1.4
   data_table_2: ^2.0.3
+  responsive_builder:
+  url_strategy: ^0.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
